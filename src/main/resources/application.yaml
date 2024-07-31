@@ -1,0 +1,25 @@
+spring:
+  application:
+    name : GatewayMicro
+  cloud:
+    gateway:
+      routes:
+        - id: ONEMICRO
+          uri: lb://ONEMICRO
+          predicates:
+            - Path=/micro1/**
+
+        - id: TWOMICRO
+          uri: lb://TWOMICRO
+          predicates:
+            - Path=/micro2/**
+
+        - id: THREEMICRO
+          uri: lb://THREEMICRO
+          predicates:
+            - Path=/micro3/**
+
+server:
+  port: 8084
+
+
