@@ -17,9 +17,15 @@ spring:
         - id: THREEMICRO
           uri: lb://THREEMICRO
           predicates:
-            - Path=/micro3/**
+            - Path=/micro3/**,/someOtherUrl/**
+
 
 server:
   port: 8084
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
 
 
